@@ -18,16 +18,25 @@
   displayRequiredFields=false
   script=""
   showAnotherWayIfPresent=true
-  
+  displayHeader=true
 >
   <#assign cardHeader>
+  <#if displayHeader>
     <@logo.kw>
       ${kcSanitize(msg("loginTitleHtml", (realm.displayNameHtml!"")))?no_esc}
     </@logo.kw>
+  </#if>
+
     <#if !(auth?has_content && auth.showUsername() && !auth.showResetCredentials())>
-      <@heading.kw>
+      <#if displayHeader>
+        <@heading.kw>
+          <#nested "header">
+        </@heading.kw>
+      <#else>
+       <@logo.kw>
         <#nested "header">
-      </@heading.kw>
+      </@logo.kw>
+      </#if>
     <#else>
       <#nested "show-username">
       <@username.kw
@@ -72,10 +81,7 @@
       <@document.kw script=script />
     </head>
     <@body.kw>
-    <!-- Stories Logo -->
-        <div class="absolute top-0 left-0 p-4">
-            <@storiesIcon.kw />
-        </div>
+    
       <@container.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
         <@nav.kw>
