@@ -11,6 +11,7 @@
 <@layout.registrationLayout
   displayInfo=true
   displayMessage=!messagesPerField.existsError("username")
+  displayHeader=false
   ;
   section
 >
@@ -30,15 +31,18 @@
       />
       <@buttonGroup.kw>
         <@button.kw color="primary" type="submit">
-          ${msg("doSubmit")}
+          ${msg("resetPassword")}
         </@button.kw>
       </@buttonGroup.kw>
+      <@link.kw color="secondary" href=url.loginUrl size="small">
+      ${kcSanitize(msg("backToLogin"))?no_esc}
+    </@link.kw>
     </@form.kw>
   <#elseif section="info">
     ${msg("emailInstruction")}
-  <#elseif section="nav">
+  <#--  <#elseif section="nav">
     <@link.kw color="secondary" href=url.loginUrl size="small">
       ${kcSanitize(msg("backToLogin"))?no_esc}
-    </@link.kw>
+    </@link.kw>  -->
   </#if>
 </@layout.registrationLayout>

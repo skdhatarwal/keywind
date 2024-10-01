@@ -1,5 +1,6 @@
 <#macro kw>
-  <body class="bg-secondary-100 flex flex-col items-center justify-center min-h-screen sm:py-16">
+  <body class="mx-auto mt-[72px] bg-gradient-to-t from-blue-500 to-green-500 relative" 
+    style="background: linear-gradient(to bottom, #34508E, #4AB2BB);">
     <#nested>
   </body>
 </#macro>

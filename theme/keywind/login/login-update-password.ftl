@@ -55,7 +55,7 @@
           </@button.kw>
         <#else>
           <@button.kw color="primary" type="submit">
-            ${msg("doSubmit")}
+            ${msg("doResetPassword")}
           </@button.kw>
         </#if>
       </@buttonGroup.kw>

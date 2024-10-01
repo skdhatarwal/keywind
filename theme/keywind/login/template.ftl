@@ -9,6 +9,7 @@
 <#import "components/atoms/nav.ftl" as nav>
 <#import "components/molecules/locale-provider.ftl" as localeProvider>
 <#import "components/molecules/username.ftl" as username>
+<#import "/assets/icons/stories.ftl" as storiesIcon>
 
 <#macro
   registrationLayout
@@ -17,6 +18,7 @@
   displayRequiredFields=false
   script=""
   showAnotherWayIfPresent=true
+  
 >
   <#assign cardHeader>
     <@logo.kw>
@@ -70,6 +72,10 @@
       <@document.kw script=script />
     </head>
     <@body.kw>
+    <!-- Stories Logo -->
+        <div class="absolute top-0 left-0 p-4">
+            <@storiesIcon.kw />
+        </div>
       <@container.kw>
         <@card.kw content=cardContent footer=cardFooter header=cardHeader />
         <@nav.kw>

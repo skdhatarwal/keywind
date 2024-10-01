@@ -56,11 +56,6 @@
                 name="rememberMe"
               />
             </#if>
-            <#if realm.resetPasswordAllowed>
-              <@link.kw color="primary" href=url.loginResetCredentialsUrl size="small">
-                ${msg("doForgotPassword")}
-              </@link.kw>
-            </#if>
           </div>
         </#if>
         <@buttonGroup.kw>
@@ -68,6 +63,13 @@
             ${msg("doLogIn")}
           </@button.kw>
         </@buttonGroup.kw>
+        <#if realm.resetPasswordAllowed>
+        <div class="underline underline-offset-1">
+              <@link.kw color="secondary" href=url.loginResetCredentialsUrl size="small">
+                ${msg("doForgotPassword")}
+              </@link.kw>
+        </div>
+            </#if>
       </@form.kw>
     </#if>
   <#elseif section="info">
